@@ -16,6 +16,8 @@ class HomeScreenViewModel @Inject constructor (
     private val speciesUseCase: SpeciesUseCase
 ): ViewModel() {
     private var _name = mutableStateOf("---")
+    var type = "---"
+    var flavorTexts = listOf("---")
 
     init {
         println(">>>HomeScreenViewModel init")
@@ -27,6 +29,8 @@ class HomeScreenViewModel @Inject constructor (
             val speciesResultDto = speciesUseCase.searchSpecies(idOrName)
             println(">>>species: $speciesResultDto")
             _name.value = speciesResultDto.name
+            type = speciesResultDto.type
+            flavorTexts = speciesResultDto.flavorTexts
         }
         println(">>>searchSpecies end")
     }
@@ -42,6 +46,8 @@ class HomeScreenViewModel @Inject constructor (
                     println(">>>Success: ${stateNotice.data}")
                     println(">>>data.name: ${stateNotice.data?.name ?: "none"}")
                     _name.value = stateNotice.data?.name ?: "none"
+                    type = stateNotice.data?.type ?: "none"
+                    flavorTexts = stateNotice.data?.flavorTexts ?: listOf("---")
                 }
                 is StateNotice.Failure -> {
                     println(">>>Failure: ${stateNotice.error}")

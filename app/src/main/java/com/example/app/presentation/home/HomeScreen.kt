@@ -31,5 +31,7 @@ fun HomeScreen(
             Text(text = "Search Species Flow")
         }
         Text(text = viewModel.getName())
+        Text(text = viewModel.type)
+        Text(text = viewModel.flavorTexts.toString())
     }
 }

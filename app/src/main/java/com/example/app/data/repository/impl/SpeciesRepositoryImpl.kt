@@ -63,7 +63,7 @@ class SpeciesRepositoryImpl @Inject constructor(
      */
     private fun getFlavorTextJp(speciesResultData: SpeciesResultData): List<String> {
         val ret = speciesResultData.flavorTextEntries?.filter {
-            it.language?.name == "ja-Hrkt"
+            it.language?.name == "ja-Hrkt" && (it.version?.name == "sword" || it.version?.name == "shield")
         }?.mapNotNull {
             it.flavorText?.replace("\n", "")
         }?.distinct()?: listOf()
