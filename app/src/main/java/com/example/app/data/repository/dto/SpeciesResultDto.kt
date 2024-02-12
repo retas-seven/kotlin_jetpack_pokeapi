@@ -8,4 +8,5 @@ data class SpeciesResultDto(
     val name: String,
     val type: String,
     val flavorTexts: List<String>,
+    val officialArtworkUrl: String
 )

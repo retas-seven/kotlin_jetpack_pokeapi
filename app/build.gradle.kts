@@ -92,4 +92,7 @@ dependencies {
 
     // Coil
     implementation("io.coil-kt:coil-compose:2.2.2")
+
+    // Timber
+    implementation("com.jakewharton.timber:timber:4.7.1")
 }

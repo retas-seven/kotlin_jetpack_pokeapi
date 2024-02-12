@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,43 +19,46 @@ class HomeScreenViewModel @Inject constructor (
     private var _name = mutableStateOf("---")
     var type = "---"
     var flavorTexts = listOf("---")
+    var officialArtworkUrl = ""
 
     init {
-        println(">>>HomeScreenViewModel init")
+        Timber.d(">>>HomeScreenViewModel init!!")
     }
 
     fun searchSpecies(idOrName: String) {
-        println(">>>searchSpecies start")
+        Timber.d(">>>searchSpecies start")
         viewModelScope.launch {
             val speciesResultDto = speciesUseCase.searchSpecies(idOrName)
-            println(">>>species: $speciesResultDto")
+            Timber.d(">>>species: $speciesResultDto")
             _name.value = speciesResultDto.name
             type = speciesResultDto.type
             flavorTexts = speciesResultDto.flavorTexts
+            officialArtworkUrl = speciesResultDto.officialArtworkUrl
         }
-        println(">>>searchSpecies end")
+        Timber.d(">>>searchSpecies end")
     }
 
     fun searchSpeciesFlow(idOrName: String) {
-        println(">>>searchSpeciesFlow start")
+        Timber.d(">>>searchSpeciesFlow start")
         speciesUseCase.searchSpeciesFlow(idOrName).onEach { stateNotice ->
             when (stateNotice) {
                 is StateNotice.Loading -> {
-                    println(">>>Loading")
+                    Timber.d(">>>Loading")
                 }
                 is StateNotice.Success -> {
-                    println(">>>Success: ${stateNotice.data}")
-                    println(">>>data.name: ${stateNotice.data?.name ?: "none"}")
+                    Timber.d(">>>Success: ${stateNotice.data}")
+                    Timber.d(">>>data.name: ${stateNotice.data?.name ?: "none"}")
                     _name.value = stateNotice.data?.name ?: "none"
                     type = stateNotice.data?.type ?: "none"
                     flavorTexts = stateNotice.data?.flavorTexts ?: listOf("---")
+                    officialArtworkUrl = stateNotice.data?.officialArtworkUrl ?: ""
                 }
                 is StateNotice.Failure -> {
-                    println(">>>Failure: ${stateNotice.error}")
+                    Timber.d(">>>Failure: ${stateNotice.error}")
                 }
             }
         }.launchIn(viewModelScope)
-        println(">>>searchSpeciesFlow end")
+        Timber.d(">>>searchSpeciesFlow end")
     }
 
     fun getName(): String {

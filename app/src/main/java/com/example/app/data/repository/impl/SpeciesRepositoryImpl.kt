@@ -20,14 +20,16 @@ class SpeciesRepositoryImpl @Inject constructor(
         val pokemonNameJp = getPokemonNameJp(speciesResultData)
         val pokemonTypeJp = getPokemonTypeJp(speciesResultData)
         val flavorTextsJp = getFlavorTextJp(speciesResultData)
+        val id = speciesResultData.id!! // IDは必ず取得できる想定
 
         // 取得したデータをDtoに変換
         val speciesResultDto = SpeciesResultDto(
             baseHappiness = speciesResultData.baseHappiness ?: 0,
-            id = speciesResultData.id ?: 0,
+            id = id,
             name = pokemonNameJp,
             type = pokemonTypeJp,
-            flavorTexts = flavorTextsJp
+            flavorTexts = flavorTextsJp,
+            officialArtworkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png",
         )
 
         return speciesResultDto
