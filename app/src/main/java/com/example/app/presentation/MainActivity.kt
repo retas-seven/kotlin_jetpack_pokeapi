@@ -10,8 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.app.presentation.ScreenRoute
-import com.example.app.presentation.home.HomeScreen
+import com.example.app.presentation.pokemon_detail.PokemonDetailScreen
+import com.example.app.presentation.pokemon_list.PokemonListScreen
+import com.example.app.presentation.pokemon_search.PokemonSearchScreen
 import com.example.app.presentation.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,11 +33,19 @@ class MainActivity : ComponentActivity() {
                     //-----------------
                     NavHost(
                         navController = navController,
-                        startDestination = ScreenRoute.HomeScreen.route,
+                        startDestination = ScreenRoute.PokemonSearchScreen.route, // 開始画面の指定
                     ) {
-                        // ホーム画面
-                        composable(route = ScreenRoute.HomeScreen.route) {
-                            HomeScreen(navController)
+                        // 検索画面
+                        composable(route = ScreenRoute.PokemonSearchScreen.route) {
+                            PokemonSearchScreen(navController)
+                        }
+                        // 一覧画面
+                        composable(route = ScreenRoute.PokemonListScreen.route) {
+                            PokemonListScreen(navController)
+                        }
+                        // 詳細画面
+                        composable(route = ScreenRoute.PokemonDetailScreen.route + "/{pokemonId}") {
+                            PokemonDetailScreen(navController)
                         }
                     }
                 }

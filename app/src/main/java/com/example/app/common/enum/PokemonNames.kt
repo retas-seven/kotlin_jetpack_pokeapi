@@ -1,6 +1,6 @@
 package com.example.app.common.enum
 
-enum class PokeName (val id: Int, val jp: String, val en: String) {
+enum class PokemonNames (val id: Int, val jp: String, val en: String) {
     BULBASAUR( 1, "フシギダネ", "bulbasaur"),
     IVYSAUR( 2, "フシギソウ", "ivysaur"),
     VENUSAUR( 3, "フシギバナ", "venusaur"),
@@ -772,7 +772,7 @@ enum class PokeName (val id: Int, val jp: String, val en: String) {
     SANDYGAST( 769, "スナバァ", "sandygast"),
     PALOSSAND( 770, "シロデスナ", "palossand"),
     PYUKUMUKU( 771, "ナマコブシ", "pyukumuku"),
-    TYPE_NULL( 772, "タイプヌル", "type: null"),
+    TYPE_NULL( 772, "タイプ：ヌル", "type: null"),
     SILVALLY( 773, "シルヴァディ", "silvally"),
     MINIOR( 774, "メテノ", "minior"),
     KOMALA( 775, "ネッコアラ", "komala"),

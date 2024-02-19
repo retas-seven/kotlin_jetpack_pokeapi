@@ -1,4 +1,4 @@
-package com.example.app.presentation.home
+package com.example.app.presentation.pokemon_detail
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -7,40 +7,36 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Share
-import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.example.app.presentation.ScreenRoute
 
 @Composable
-fun HomeScreen(
+fun PokemonDetailScreen(
     navController: NavController,
-    viewModel: HomeScreenViewModel = hiltViewModel(),
+    viewModel: PokemonDetailScreenViewModel = hiltViewModel(),
 ) {
-    println(">>>HomeScreen start")
+    println(">>>PokemonDetailScreen start")
     var isLoadingImage = remember { mutableStateOf(false) }
 
     Column {
+        Button(
+            onClick = {
+                navController.navigate(ScreenRoute.PokemonSearchScreen.route)
+            }
+        ) {
+            Text(text = "Back")
+        }
         Button(
             onClick = {
                 isLoadingImage.value = true

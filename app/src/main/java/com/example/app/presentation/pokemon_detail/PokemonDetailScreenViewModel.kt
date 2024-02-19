@@ -1,6 +1,7 @@
-package com.example.app.presentation.home
+package com.example.app.presentation.pokemon_detail
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.app.common.StateNotice
@@ -13,16 +14,28 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenViewModel @Inject constructor (
-    private val speciesUseCase: SpeciesUseCase
+class PokemonDetailScreenViewModel @Inject constructor (
+    private val speciesUseCase: SpeciesUseCase,
+    savedStateHandle: SavedStateHandle,
 ): ViewModel() {
     private var _name = mutableStateOf("---")
     var type = "---"
     var flavorTexts = listOf("---")
     var officialArtworkUrl = ""
+//    var pokemonId = 0
 
     init {
         Timber.d(">>>HomeScreenViewModel init!!")
+
+        // 渡されたパラメータを保持する
+        savedStateHandle.get<String>("pokemonId")?.let { pokemonId ->
+//            this.pokemonId = it
+//            pokemonId.toIntOrNull()?.let {
+//                searchSpeciesFlow(it)
+//            }
+            searchSpeciesFlow(pokemonId)
+        }
+//        Timber.d(">>>pokemonId: ${pokemonId}")
     }
 
     fun searchSpecies(idOrName: String) {
