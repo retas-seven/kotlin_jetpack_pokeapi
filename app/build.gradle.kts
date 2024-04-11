@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.app"
-        minSdk = 26
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -52,7 +52,6 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.0")
@@ -69,7 +68,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-
     //  HTTP クライアントライブラリ
     val retrofitVersion = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:${retrofitVersion}")
@@ -84,7 +82,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:${hiltVersion}")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("com.google.dagger:dagger-compiler:${hiltVersion}")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.1")
 
     // Navigationコンポーネント
     implementation("androidx.navigation:navigation-compose:2.5.3")
@@ -92,8 +90,15 @@ dependencies {
     // ViewModelをComposeで使うためのライブラリ
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
+    // Room
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:${room_version}")
+    annotationProcessor("androidx.room:room-compiler:${room_version}")
+    kapt("androidx.room:room-compiler:${room_version}")
+
     // Coil
-    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("io.coil-kt:coil-gif:2.6.0")
 
     // Timber
     implementation("com.jakewharton.timber:timber:4.7.1")

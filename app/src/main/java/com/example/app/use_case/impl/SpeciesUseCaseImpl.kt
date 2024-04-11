@@ -19,7 +19,6 @@ class SpeciesUseCaseImpl @Inject constructor(
     }
 
     override fun searchSpeciesFlow(idOrName: String): Flow<StateNotice<SpeciesResultDto>> = flow {
-        delay(1000L) // 試験的に待ちを入れる
         emit(StateNotice.Loading<SpeciesResultDto>())
 
         try {

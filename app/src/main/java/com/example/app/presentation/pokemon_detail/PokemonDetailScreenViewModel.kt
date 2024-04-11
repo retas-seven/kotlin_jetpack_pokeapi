@@ -40,24 +40,29 @@ class PokemonDetailScreenViewModel @Inject constructor (
 
     fun searchSpecies(idOrName: String) {
         Timber.d(">>>searchSpecies start")
+
         viewModelScope.launch {
             val speciesResultDto = speciesUseCase.searchSpecies(idOrName)
             Timber.d(">>>species: $speciesResultDto")
+
             _name.value = speciesResultDto.name
             type = speciesResultDto.type
             flavorTexts = speciesResultDto.flavorTexts
             officialArtworkUrl = speciesResultDto.officialArtworkUrl
         }
+
         Timber.d(">>>searchSpecies end")
     }
 
     fun searchSpeciesFlow(idOrName: String) {
         Timber.d(">>>searchSpeciesFlow start")
+
         speciesUseCase.searchSpeciesFlow(idOrName).onEach { stateNotice ->
             when (stateNotice) {
                 is StateNotice.Loading -> {
                     Timber.d(">>>Loading")
                 }
+
                 is StateNotice.Success -> {
                     Timber.d(">>>Success: ${stateNotice.data}")
                     Timber.d(">>>data.name: ${stateNotice.data?.name ?: "none"}")
@@ -66,11 +71,13 @@ class PokemonDetailScreenViewModel @Inject constructor (
                     flavorTexts = stateNotice.data?.flavorTexts ?: listOf("---")
                     officialArtworkUrl = stateNotice.data?.officialArtworkUrl ?: ""
                 }
+
                 is StateNotice.Failure -> {
                     Timber.d(">>>Failure: ${stateNotice.error}")
                 }
             }
         }.launchIn(viewModelScope)
+
         Timber.d(">>>searchSpeciesFlow end")
     }
 
