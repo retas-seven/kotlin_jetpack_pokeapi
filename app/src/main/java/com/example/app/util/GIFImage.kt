@@ -46,6 +46,6 @@ fun GIFImage(
 @Preview
 @Composable
 fun GIFImagePreview() {
-    GIFImage(gifImage = R.drawable.awebp)
+    GIFImage(gifImage = R.drawable.agif)
 }
 
