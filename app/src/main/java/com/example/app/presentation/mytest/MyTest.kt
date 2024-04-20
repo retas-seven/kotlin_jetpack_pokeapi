@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.app.presentation.ui.theme.Kaisei
 import com.example.app.presentation.ui.theme.myTestStyle
 import com.example.app.presentation.ui.theme.myTestStyle02
 
@@ -94,7 +95,7 @@ fun MyTest(
 //            style = myTestStyle02,)
 
         val myTestStyle02 = TextStyle(
-            fontFamily = FontFamily.Default,
+            fontFamily = Kaisei, // FontFamily.Default,
             fontSize = 64.sp,
             fontWeight = FontWeight.Normal,
             lineHeight = 0.sp,

@@ -12,54 +12,43 @@ import com.example.app.R
  * 追加フォントの定義
  */
 val Kaisei = FontFamily(
-        Font(R.font.kaiseiopti_regular, FontWeight.W400),
-        Font(R.font.kaiseiopti_medium, FontWeight.W500),
-        Font(R.font.kaiseiopti_bold, FontWeight.W700)
+    Font(R.font.kaiseiopti_regular, FontWeight.W400),
+    Font(R.font.kaiseiopti_medium, FontWeight.W500),
+    Font(R.font.kaiseiopti_bold, FontWeight.W700)
 )
 
-// Set of Material typography styles to start with
-val Typography = Typography(
-        bodyLarge = TextStyle(
-                fontFamily = FontFamily.Default,
-                fontWeight = FontWeight.Normal,
-                fontSize = 16.sp,
-                lineHeight = 24.sp,
-                letterSpacing = 0.5.sp
-        )
+val tmp = Typography()
+val Typography = tmp.copy(
+        displayLarge   = tmp.displayLarge.copy(fontFamily = Kaisei),
+        displayMedium  = tmp.displayMedium.copy(fontFamily = Kaisei),
+        displaySmall   = tmp.displaySmall.copy(fontFamily = Kaisei),
+        headlineLarge  = tmp.headlineLarge.copy(fontFamily = Kaisei),
+        headlineMedium = tmp.headlineMedium.copy(fontFamily = Kaisei),
+        headlineSmall  = tmp.headlineSmall.copy(fontFamily = Kaisei),
+        titleLarge     = tmp.titleLarge.copy(fontFamily = Kaisei),
+        titleMedium    = tmp.titleMedium.copy(fontFamily = Kaisei),
+        titleSmall     = tmp.titleSmall.copy(fontFamily = Kaisei),
+        bodyLarge      = tmp.bodyLarge.copy(fontFamily = Kaisei),
+        bodyMedium     = tmp.bodyMedium.copy(fontFamily = Kaisei),
+        bodySmall      = tmp.bodySmall.copy(fontFamily = Kaisei),
+        labelLarge     = tmp.labelLarge.copy(fontFamily = Kaisei),
+        labelMedium    = tmp.labelMedium.copy(fontFamily = Kaisei),
+        labelSmall     = tmp.labelSmall.copy(fontFamily = Kaisei),
 )
 
 // mytest
 val myTestStyle = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = Kaisei, // FontFamily.Default,
         fontSize = 64.sp,
         fontWeight = FontWeight.Normal,
         // TODO: lineHeightを設定すると、画面タイトルの上下位置がずれる。要確認。
-//        lineHeight = 32.sp,
+//      lineHeight = 32.sp,
         letterSpacing = 0.sp
 )
 val myTestStyle02 = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = Kaisei, // FontFamily.Default,
         fontSize = 64.sp,
         fontWeight = FontWeight.Normal,
-//        lineHeight = 0.sp,
+//      lineHeight = 0.sp,
         letterSpacing = 0.sp
 )
-
-//val DefaultTypography = Typography()
-//val Typography = DefaultTypography.copy(
-//        displayLarge   = DefaultTypography.displayLarge.copy(fontFamily = Kaisei),
-//        displayMedium  = DefaultTypography.displayMedium.copy(fontFamily = Kaisei),
-//        displaySmall   = DefaultTypography.displaySmall.copy(fontFamily = Kaisei),
-//        headlineLarge  = DefaultTypography.headlineLarge.copy(fontFamily = Kaisei),
-//        headlineMedium = DefaultTypography.headlineMedium.copy(fontFamily = Kaisei),
-//        headlineSmall  = DefaultTypography.headlineSmall.copy(fontFamily = Kaisei),
-//        titleLarge     = DefaultTypography.titleLarge.copy(fontFamily = Kaisei),
-//        titleMedium    = DefaultTypography.titleMedium.copy(fontFamily = Kaisei),
-//        titleSmall     = DefaultTypography.titleSmall.copy(fontFamily = Kaisei),
-//        bodyLarge      = DefaultTypography.bodyLarge.copy(fontFamily = Kaisei),
-//        bodyMedium     = DefaultTypography.bodyMedium.copy(fontFamily = Kaisei),
-//        bodySmall      = DefaultTypography.bodySmall.copy(fontFamily = Kaisei),
-//        labelLarge     = DefaultTypography.labelLarge.copy(fontFamily = Kaisei),
-//        labelMedium    = DefaultTypography.labelMedium.copy(fontFamily = Kaisei),
-//        labelSmall     = DefaultTypography.labelSmall.copy(fontFamily = Kaisei),
-//)
