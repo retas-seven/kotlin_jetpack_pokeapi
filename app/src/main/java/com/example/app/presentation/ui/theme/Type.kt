@@ -14,7 +14,7 @@ import com.example.app.R
 val Kaisei = FontFamily(
     Font(R.font.kaiseiopti_regular, FontWeight.W400),
     Font(R.font.kaiseiopti_medium, FontWeight.W500),
-    Font(R.font.kaiseiopti_bold, FontWeight.W700)
+    Font(R.font.kaiseiopti_bold, FontWeight.W900)
 )
 
 val tmp = Typography()
