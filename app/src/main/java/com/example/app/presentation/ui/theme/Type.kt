@@ -18,7 +18,7 @@ val Kaisei = FontFamily(
 )
 
 val tmp = Typography()
-val Typography = tmp.copy(
+val Typography = Typography().copy(
         displayLarge   = tmp.displayLarge.copy(fontFamily = Kaisei),
         displayMedium  = tmp.displayMedium.copy(fontFamily = Kaisei),
         displaySmall   = tmp.displaySmall.copy(fontFamily = Kaisei),
