@@ -12,9 +12,9 @@ import com.example.app.R
  * 追加フォントの定義
  */
 val Kaisei = FontFamily(
-    Font(R.font.kaiseiopti_regular, FontWeight.W400),
-    Font(R.font.kaiseiopti_medium, FontWeight.W500),
-    Font(R.font.kaiseiopti_bold, FontWeight.W900)
+    Font(R.font.kaiseiopti_regular, FontWeight.Normal),
+    Font(R.font.kaiseiopti_medium, FontWeight.Medium),
+    Font(R.font.kaiseiopti_bold, FontWeight.Bold)
 )
 
 val tmp = Typography()
