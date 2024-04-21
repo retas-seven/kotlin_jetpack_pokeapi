@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.sp
 import com.example.app.R
 
 /**
- * 追加フォントの定義
+ * 追加フォントの定義tteesstt
  */
 val Kaisei = FontFamily(
     Font(R.font.kaiseiopti_regular, FontWeight.W400),
