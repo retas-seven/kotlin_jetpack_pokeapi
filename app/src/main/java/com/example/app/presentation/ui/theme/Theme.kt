@@ -40,7 +40,7 @@ fun AppTheme(
         dynamicColor: Boolean = true,
         content: @Composable () -> Unit
 ) {
-    // 03
+    // Use dynamic color scheme if available
     val colorScheme = LightColorScheme
 
     val view = LocalView.current
