@@ -38,6 +38,9 @@ import timber.log.Timber
 import androidx.compose.ui.viewinterop.AndroidView
 
 
+/**
+ * ポケモン検索画面
+ */
 @Composable
 fun PokemonSearchScreen(
     navController: NavController,
