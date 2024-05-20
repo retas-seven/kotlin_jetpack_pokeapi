@@ -17,6 +17,7 @@ import androidx.compose.foundation.text.BasicText
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,6 +39,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.app.data.room.entity.User
 import com.example.app.presentation.ui.theme.Kaisei
 import com.example.app.presentation.ui.theme.myTestStyle
 import com.example.app.presentation.ui.theme.myTestStyle02
@@ -50,50 +52,22 @@ fun MyTest(
     navController: NavController? = null,
     viewModel: MyTestViewModel = hiltViewModel(),
 ) {
+
+    LaunchedEffect(Unit) {
+        viewModel.seveUser(
+            User(
+                id = 1,
+                firstName = "taro",
+                lastName = "yamada都"
+            )
+        )
+    }
+
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
         modifier = Modifier.fillMaxSize()
     ){
-//        Text(
-//            text = "開始時のテスト",
-//            style = myTestStyle.copy(
-//                platformStyle = PlatformTextStyle(
-//                    includeFontPadding = false
-//                ),
-//                lineHeightStyle = LineHeightStyle(
-//                    alignment = LineHeightStyle.Alignment.Center,
-//                    trim = LineHeightStyle.Trim.FirstLineTop
-//                )
-//            ),
-//            modifier = Modifier
-//                .border(1.dp, Color.Blue)
-//                .background(Color.Yellow)
-//        )
-//
-//        Spacer(modifier = Modifier.height(16.dp))
-//
-//        Row () {
-//            Text(
-//                text = "開始時のテスト開始時のテスト",
-//                style = myTestStyle02,
-////                overflow = TextOverflow.Clip,
-//                modifier = Modifier
-//                    .border(1.dp, Color.Blue)
-//                    .background(Color.Yellow)
-//                    .width(300.dp)
-//            )
-//        }
-
-//        Text("Hello Compose ".repeat(50),
-//            maxLines = 1,
-//            overflow = TextOverflow.Ellipsis,
-//            style = myTestStyle02,)
-//        Text("Hello Compose ".repeat(50),
-//            maxLines = 1,
-//            overflow = TextOverflow.Visible,
-//            style = myTestStyle02,)
-
         val myTestStyle02 = TextStyle(
             fontFamily = Kaisei, // FontFamily.Default,
             fontSize = 64.sp,
