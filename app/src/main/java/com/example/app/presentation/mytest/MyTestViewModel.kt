@@ -23,7 +23,7 @@ class MyTestViewModel @Inject constructor (
     private val savedStateHandle: SavedStateHandle,
     private val userDao: UserDao,
 ): ViewModel() {
-    fun seveUser(users: User) {
+    fun saveUser(users: User) {
         viewModelScope.launch {
             userDao.insertAll(users)
         }

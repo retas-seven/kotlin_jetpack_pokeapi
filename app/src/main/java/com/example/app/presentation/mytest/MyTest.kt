@@ -54,13 +54,6 @@ fun MyTest(
 ) {
 
     LaunchedEffect(Unit) {
-        viewModel.seveUser(
-            User(
-                id = 1,
-                firstName = "taro",
-                lastName = "yamada都"
-            )
-        )
     }
 
     Column (

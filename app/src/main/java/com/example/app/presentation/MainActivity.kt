@@ -15,6 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.app.presentation.mytest.MyTest
 import com.example.app.presentation.pokemon_detail.PokemonDetailScreen
+import com.example.app.presentation.pokemon_list.PickupScreen
 import com.example.app.presentation.pokemon_list.PokemonListScreen
 import com.example.app.presentation.pokemon_search.PokemonSearchScreen
 import com.example.app.presentation.ui.theme.AppTheme
@@ -26,9 +27,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // ステータスバーとナビゲーションバーを非表示にする
-//        WindowCompat.setDecorFitsSystemWindows(window, false)
-//        val controller = WindowInsetsControllerCompat(window, window.decorView)
-//        controller.hide(WindowInsetsCompat.Type.systemBars())
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, window.decorView).hide(WindowInsetsCompat.Type.systemBars())
 
         setContent {
             AppTheme {
@@ -43,12 +43,16 @@ class MainActivity : ComponentActivity() {
                     //-----------------
                     NavHost(
                         navController = navController,
-//                        startDestination = ScreenRoute.PokemonSearchScreen.route, // 開始画面の指定
-                        startDestination = ScreenRoute.MyTest.route, // 開始画面の指定
+                        startDestination = ScreenRoute.PickupSearchScreen.route, // 開始画面の指定
+//                        startDestination = ScreenRoute.MyTest.route, // 開始画面の指定
                     ) {
                         // テスト用画面
                         composable(route = ScreenRoute.MyTest.route) {
                             MyTest(navController)
+                        }
+                        // ピックアップ画面
+                        composable(route = ScreenRoute.PickupSearchScreen.route) {
+                            PickupScreen(navController)
                         }
                         // 検索画面
                         composable(route = ScreenRoute.PokemonSearchScreen.route) {
