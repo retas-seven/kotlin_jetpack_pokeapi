@@ -21,7 +21,7 @@ class PickupScreenViewModel @Inject constructor (
     val pokemonIds: List<String> get() = _pokemonIds.toList()
 
     init {
-        Timber.d(">>>PokemonListScreenViewModel init!!")
+        Timber.d(">>>PokemonListScreenViewModel init")
 
         // 渡されたパラメータを保持する
         val concatPokemonId = savedStateHandle.get<String>("concatPokemonId") ?: ""
