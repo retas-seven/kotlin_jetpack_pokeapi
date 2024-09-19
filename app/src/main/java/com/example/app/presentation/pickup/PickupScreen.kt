@@ -42,7 +42,7 @@ class PickupScreen {
 @Composable
 fun PickupScreen(
     navController: NavController,
-    viewModel: PickupScreenViewModel = hiltViewModel(),
+    viewModel: PickupScreenViewModel = hiltViewModel(), // ViewModel取得!
 ) {
     Column (
         modifier = Modifier.fillMaxSize()
